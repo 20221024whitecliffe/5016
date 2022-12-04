@@ -1,20 +1,11 @@
-# 5016 ReadMe.md
-# This repository is for practicing Python coding
-
-Structure of the repository follows sequences of course module. 
-Each module composites sample codes in course materials, activity practiced answers with sample answers, 
-and extended code blocks where research has been done.
-
-Comments have been added to describe questions, researches, and trials and fails of improved/unfinished/unsolved
-code blocks for further investigations.
-
-An example is shown in MyFavoriteQuote.py. By doing research and practicing on formating options, methods are 
-implemented to achieve different results.
+# myfavoritemoviequote.py
+# @ author: Lucia
+# 24.11.2022
 
 # format is a question, 
 # research has been done for different ways to achieve displaying in a block
-# method 1: add "\n" after each sentence to change lines
-# method 2: use """""" to display however need to be
+# can add "\n" after each sentence to change lines
+# can use """""" to display however need to be
 print('我要你知道，'
       '在这个世界上总有一个人是等着你的，'
       '不管在什么时候，不管在什么地方，'
@@ -41,10 +32,8 @@ print("""
         反正你知道，总有这么个人
       """)
 """ output = 
-        我要你知道，
+       我要你知道，
         在这个世界上总有一个人是等着你的，
         不管在什么时候，不管在什么地方，
         反正你知道，总有这么个人
 """
-
-Another example is 
