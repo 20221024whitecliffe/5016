@@ -1,0 +1,126 @@
+
+class MenuList:
+    def __init__():
+        pass
+
+    def password_generator(ticket_no):
+        staff_id_split = list(staff_id)
+        staff_name_split = list(staff_name)
+        new_password = "".join(staff_id_split[0:2]) + "".join(staff_name_split[0:3])
+        ticket_status_open = False
+        print("Your new pass word is ", new_password)
+
+    def menu():
+        print("""
+Select from following choices:
+0: Exit
+1: Submit helpdesk ticket
+2. Show all tickets
+3. Respond to ticket by number
+4. Re-open resolved ticket
+5. Display ticket stats
+---------------------------------
+        """)
+
+    def get_choice():
+        choice = int(input("Enter menu selection 0 - 5: "))
+        return choice     
+
+class Ticket:
+    def __init__(ticket_no, staff_name, staff_id, email, description, ticket_status, response="Not Yet Provided"):
+        pass
+
+ticket_submitted = []
+ticket_list = []
+ticket_resolved = []
+ticket_open = []
+ticket_no = 2000
+
+MenuList.menu()
+choice = MenuList.get_choice()
+
+while choice != 0:
+    if choice == 1:
+        create_new = True
+        while create_new == True:
+            ticket_no = 2001+len(ticket_submitted)
+            staff_name = input("Enter your name: ")
+            staff_id = input("Enter your staff id: ")
+            email = input("Enter your email address: ")
+            description = input("If you require a new password type: Password change\n"
+                                "Enter description of problem: ")
+            ticket_status = "Open"
+            response = "Not Yet Provided"
+            ticket_submitted.append([ticket_no, staff_name, staff_id,
+                                    email, description, ticket_status, response])
+
+            if description.lower() == "password change":
+                MenuList.password_generator(ticket_no)
+                ticket_status = "Closed"
+                continue_menu = input("Do you have another problem to submit?(Y/N) ")
+            else:
+                continue_menu = input("Do you have another problem to submit?(Y/N) ")
+            if continue_menu.lower() == "y":
+                create_new = True
+            elif continue_menu.lower() == "n":
+                create_new = False
+                MenuList.menu()
+                choice = MenuList.get_choice()
+            else:
+                print("Please type valid answer")
+                continue_menu = input("Do you have another problem to submit?(Y/N) ")
+    elif choice == 2:
+        for i in range(len(ticket_submitted)):
+            print("-----------------------------------------\n"
+                  "Ticket: {0}\nSubmitted by staff id: {1}\nTicket owner: {2}\n"
+                  "Contact email: {3}\nDescription of issue: {4}\nTicket Status: {5}\n"
+                  "Response: {6}\n".format(
+                   ticket_submited(ticket_no),
+                   ticket_submitted(staff_id),
+                   ticket_submitted(staff_name),
+                   ticket_submitted(email),
+                   ticket_submitted(description),
+                   ticket_submitted(ticket_status), 
+                   ticket_submitted(response),
+                  "----------------------------------------"))
+        MenuList.menu()
+        choice = MenuList.get_choice()
+   
+   elif choice == 3:
+        search_no = int(input("Enter the ticket number: "))
+        ticket_list[search_no-2001][5] = input("Please update the response: ")
+        print("The ticket {0}'s response is updated to {1}.".format(search_no, ticket_list[search_no-2001][5]))
+        MenuList.menu()
+        choice = MenuList.get_choice()
+
+    elif choice == 4:
+        for k in range(len(ticket_list)):
+            if ticket_submitted[6] == "Closed":
+                ticket_resolved.append(ticket_submitted)
+        print("All closed tickets are: ", ticket_resolved, "\n")
+        search_no = int(input("Please choose the ticket number to reopen: "))
+        for m in range(len(ticket_resolved)):
+            if search_no == ticket_resolved[m][0]:
+                ticket_list[search_no-2001][6] = "Open"
+                ticket_resolved.pop(ticket_resovled[m][0])
+                print("Ticket {0} is closed".format(search_no))
+        MenuList.menu()
+        choice = MenuList.get_choice()
+
+    elif choice == 5:
+          # display all closed tickets, choose from tickets, change to open
+        for k in range(len(ticket_list)):
+            if ticket_submitted[6] == "Closed":
+                ticket_resolved.append(ticket_submitted)
+            elif ticket_submitted[6] == "Open":
+                ticket_open.append(ticket_submitted)
+        print("Displaying ticket statistics \n"
+              "------------------------------------------\n"
+              "Submitted Tickets: {0}\n"
+              "Resolved Tickets: {1}\n"
+              "Open Tickets: {2}\n"
+              .format(len(ticket_submitted), len(ticket_resolved), len(ticket_open)))
+        MenuList.menu()
+        choice = MenuList.get_choice()
+exit
+    
